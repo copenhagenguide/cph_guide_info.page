@@ -11,7 +11,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copenhagen Guide | Din guide till Köpenhamn</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -20,107 +20,160 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
         .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .hero-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0); }
-        
+
         /* NY STIL för bildlösa kort: Skapar färgade boxar med stor ikon */
-        .icon-lg { 
-            background-color: #F0EEE0; /* Ljusare beige bakgrund för ikonen */
-            color: #A05252; /* Mjuk röd ikonfärg */
+        .icon-lg {
+            background-color: #E8E0D0; /* Ljusare beige bakgrund för ikonen */
+            color: #8B6B4E; /* Mjuk brun ikonfärg */
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100%; 
+            width: 100%;
             height: 150px; /* Höjd för att ersätta bildrutan */
-            font-size: 3rem; 
+            font-size: 3rem;
             margin-bottom: 0.5rem;
+        }
+
+        /* Bildstil för attraktionskort */
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
         }
     </style>
 </head>
-<body style="background-color: #F5F5DC; color: #333333;">
+<body style="background-color: #E8DFD0; color: #4A4035;">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M9RPNSZH"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-    <header style="background-color: #FFFFFF; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100;">
+    <header style="background-color: #F5EEE6; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100;">
         <div class="logo">
-            <h1 style="color: #A05252; font-size: 1.5rem;">Copenhagen <strong style="color: #333333;">Guide</strong></h1>
+            <h1 style="color: #8B6B4E; font-size: 1.5rem;">Copenhagen <strong style="color: #4A4035;">Guide</strong></h1>
         </div>
         <nav class="main-nav">
-            <button class="menu-toggle" aria-label="Toggle navigation" style="color: #333333;"></button>
+            <button class="menu-toggle" aria-label="Toggle navigation" style="color: #4A4035;"></button>
             <ul class="nav-list" style="list-style: none; display: flex;">
-                <li><a href="#attraktioner" style="text-decoration: none; color: #333333; margin-left: 1.5rem;">Sevärdheter</a></li>
-                <li><a href="#matstallen" style="text-decoration: none; color: #333333; margin-left: 1.5rem;">Mat & Restauranger</a></li>
-                <li><a href="#cafeer" style="text-decoration: none; color: #333333; margin-left: 1.5rem;">Caféer</a></li>
-                <li><a href="#tips" style="text-decoration: none; color: #333333; margin-left: 1.5rem;">Tips & Rekommendationer</a></li>
+                <li><a href="#attraktioner" style="text-decoration: none; color: #4A4035; margin-left: 1.5rem;">Sevärdheter</a></li>
+                <li><a href="#matstallen" style="text-decoration: none; color: #4A4035; margin-left: 1.5rem;">Mat & Restauranger</a></li>
+                <li><a href="#cafeer" style="text-decoration: none; color: #4A4035; margin-left: 1.5rem;">Caféer</a></li>
+                <li><a href="#tips" style="text-decoration: none; color: #4A4035; margin-left: 1.5rem;">Tips & Rekommendationer</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero-section" style="background-color: #F0EEE0; background-image: none; min-height: auto; display: flex; justify-content: center; align-items: center; text-align: center; position: relative;">
+    <section class="hero-section" style="background-color: #D9CFC2; background-image: none; min-height: auto; display: flex; justify-content: center; align-items: center; text-align: center; position: relative;">
         <div class="hero-content" style="position: relative; max-width: 800px; padding: 2rem;">
-            <h2 style="font-size: 3rem; margin-bottom: 1rem; color: #333333;">Upplev Skandinaviens Pärla</h2>
+            <h2 style="font-size: 3rem; margin-bottom: 1rem; color: #4A4035;">Upplev Skandinaviens Pärla</h2>
             <img src="images/NYhavn.jpg" alt="Nyhavn - Köpenhamns ikoniska hamn med färgglada hus" style="width: 100vw; max-width: 100vw; height: auto; margin-left: calc(-50vw + 50%); margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
-            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #333333;">Din kompletta guide till Köpenhamns bästa sevärdheter, smaker och dolda pärlor.</p>
-            <a href="#attraktioner" class="cta-button" style="display: inline-block; background-color: #A05252; color: #FFFFFF; text-decoration: none; padding: 1rem 2rem; border-radius: 5px; font-weight: 600;">Upptäck Köpenhamn <i class="fas fa-arrow-right"></i></a>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #4A4035;">Din kompletta guide till Köpenhamns bästa sevärdheter, smaker och dolda pärlor.</p>
+            <a href="#attraktioner" class="cta-button" style="display: inline-block; background-color: #8B6B4E; color: #FFFFFF; text-decoration: none; padding: 1rem 2rem; border-radius: 5px; font-weight: 600;">Upptäck Köpenhamn <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
     <main class="container">
-        
+
         <section id="attraktioner" class="content-section" style="padding: 4rem 0;">
-            <h3 style="font-size: 2rem; margin-bottom: 2rem; color: #A05252; text-align: center;"><i class="fas fa-map-marker-alt"></i> Sevärdheter</h3>
+            <h3 style="font-size: 2rem; margin-bottom: 2rem; color: #8B6B4E; text-align: center;"><i class="fas fa-map-marker-alt"></i> Sevärdheter</h3>
             <div class="card-grid">
-                
-                <article class="card" style="background-color: #FFFFFF; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px; overflow: hidden; padding-bottom: 1.5rem;">
-                    <div class="icon-lg"><i class="fas fa-ship"></i></div>
-                    <h4 style="color: #A05252; margin: 1rem 1.5rem 0.5rem;">Nyhavn</h4>
-                    <p style="padding: 0 1.5rem;">De ikoniska färgglada husen och historiska fartygen. Perfekt för en promenad och lunch vid kanalen.</p>
+
+                <article class="card" style="background-color: #F5EEE6; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px; overflow: hidden; padding-bottom: 1.5rem;">
+                    <img src="images/Bild 39.jpeg" alt="Nyhavn - färgglada hus och hamn" class="card-image">
+                    <h4 style="color: #8B6B4E; margin: 1rem 1.5rem 0.5rem;">Nyhavn</h4>
+                    <p style="padding: 0 1.5rem; color: #4A4035;">De ikoniska färgglada husen och historiska fartygen. Perfekt för en promenad och lunch vid kanalen.</p>
                 </article>
-                
-                <article class="card" style="background-color: #FFFFFF; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px; overflow: hidden; padding-bottom: 1.5rem;">
-                    <div class="icon-lg"><i class="fas fa-roller-coaster"></i></div>
-                    <h4 style="color: #A05252; margin: 1rem 1.5rem 0.5rem;">Tivoli Gardens</h4>
-                    <p style="padding: 0 1.5rem;">En av världens äldsta nöjesparker. Magiskt på kvällen med belysning och underhållning.</p>
+
+                <article class="card" style="background-color: #F5EEE6; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px; overflow: hidden; padding-bottom: 1.5rem;">
+                    <img src="images/Bild 41.jpeg" alt="Tivoli Gardens - nöjespark" class="card-image">
+                    <h4 style="color: #8B6B4E; margin: 1rem 1.5rem 0.5rem;">Tivoli Gardens</h4>
+                    <p style="padding: 0 1.5rem; color: #4A4035;">En av världens äldsta nöjesparker. Magiskt på kvällen med belysning och underhållning.</p>
                 </article>
-                
-                <article class="card" style="background-color: #FFFFFF; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px; overflow: hidden; padding-bottom: 1.5rem;">
-                    <div class="icon-lg"><i class="fas fa-water"></i></div>
-                    <h4 style="color: #A05252; margin: 1rem 1.5rem 0.5rem;">Den Lilla Sjöjungfrun</h4>
-                    <p style="padding: 0 1.5rem;">Köpenhamns mest kända landmärke, inspirerad av H.C. Andersens saga.</p>
+
+                <article class="card" style="background-color: #F5EEE6; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px; overflow: hidden; padding-bottom: 1.5rem;">
+                    <img src="images/Bild 40.jpeg" alt="Den Lilla Sjöjungfrun" class="card-image">
+                    <h4 style="color: #8B6B4E; margin: 1rem 1.5rem 0.5rem;">Den Lilla Sjöjungfrun</h4>
+                    <p style="padding: 0 1.5rem; color: #4A4035;">Köpenhamns mest kända landmärke, inspirerad av H.C. Andersens saga.</p>
                 </article>
             </div>
         </section>
 
-        <section id="matstallen" class="content-section secondary-bg" style="padding: 4rem 0; background-color: #F0EEE0;">
-            <h3 style="font-size: 2rem; margin-bottom: 2rem; color: #A05252; text-align: center;"><i class="fas fa-utensils"></i> Mat & Restauranger</h3>
+        <section id="matstallen" class="content-section secondary-bg" style="padding: 4rem 0; background-color: #D9CFC2;">
+            <h3 style="font-size: 2rem; margin-bottom: 2rem; color: #8B6B4E; text-align: center;"><i class="fas fa-utensils"></i> Mat & Restauranger</h3>
             <div class="card-grid">
-                <article class="card" style="background-color: #FFFFFF; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px;">
-                    <div class="icon-box" style="background-color: #A05252; color: #FFFFFF; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; margin: 1.5rem;"><i class="fas fa-cheese"></i></div>
-                    <h4 style="color: #A05252; margin: 0 1.5rem 0.5rem;">Smørrebrød</h4>
-                    <p style="padding: 0 1.5rem;">Missa inte den klassiska danska smörgåsen. Finns i otaliga varianter!</p>
+                <article class="card" style="background-color: #F5EEE6; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px;">
+                    <div class="icon-box" style="background-color: #8B6B4E; color: #FFFFFF; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; margin: 1.5rem;"><i class="fas fa-cheese"></i></div>
+                    <h4 style="color: #8B6B4E; margin: 0 1.5rem 0.5rem;">Smørrebrød</h4>
+                    <p style="padding: 0 1.5rem; color: #4A4035;">Missa inte den klassiska danska smörgåsen. Finns i otaliga varianter!</p>
                 </article>
-                <article class="card" style="background-color: #FFFFFF; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px;">
-                    <div class="icon-box" style="background-color: #A05252; color: #FFFFFF; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; margin: 1.5rem;"><i class="fas fa-star"></i></div>
-                    <h4 style="color: #A05252; margin: 0 1.5rem 0.5rem;">Michelin-upplevelser</h4>
-                    <p style="padding: 0 1.5rem;">Köpenhamn är en gastronomisk hotspot. Boka bord i god tid på stjärnkrogarna.</p>
+                <article class="card" style="background-color: #F5EEE6; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px;">
+                    <div class="icon-box" style="background-color: #8B6B4E; color: #FFFFFF; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; margin: 1.5rem;"><i class="fas fa-star"></i></div>
+                    <h4 style="color: #8B6B4E; margin: 0 1.5rem 0.5rem;">Michelin-upplevelser</h4>
+                    <p style="padding: 0 1.5rem; color: #4A4035;">Köpenhamn är en gastronomisk hotspot. Boka bord i god tid på stjärnkrogarna.</p>
                 </article>
-                <article class="card" style="background-color: #FFFFFF; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px;">
-                    <div class="icon-box" style="background-color: #A05252; color: #FFFFFF; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; margin: 1.5rem;"><i class="fas fa-fish"></i></div>
-                    <h4 style="color: #A05252; margin: 0 1.5rem 0.5rem;">Kødbyen (Köttbyn)</h4>
-                    <p style="padding: 0 1.5rem;">Ett trendigt område med många moderna restauranger och barer i gamla slakterilokaler.</p>
+                <article class="card" style="background-color: #F5EEE6; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px;">
+                    <div class="icon-box" style="background-color: #8B6B4E; color: #FFFFFF; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; margin: 1.5rem;"><i class="fas fa-fish"></i></div>
+                    <h4 style="color: #8B6B4E; margin: 0 1.5rem 0.5rem;">Kødbyen (Köttbyn)</h4>
+                    <p style="padding: 0 1.5rem; color: #4A4035;">Ett trendigt område med många moderna restauranger och barer i gamla slakterilokaler.</p>
                 </article>
             </div>
         </section>
 
         <section id="cafeer" class="content-section" style="padding: 4rem 0;">
-            <h3 style="font-size: 2rem; margin-bottom: 2rem; color: #A05252; text-align: center;"><i class="fas fa-coffee"></i> Caféer</h3>
+            <h3 style="font-size: 2rem; margin-bottom: 2rem; color: #8B6B4E; text-align: center;"><i class="fas fa-coffee"></i> Caféer</h3>
             <div class="card-grid">
-                <article class="card" style="background-color: #FFFFFF; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px;">
-                    <div class="icon-box" style="background-color: #A05252; color: #FFFFFF; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; margin: 1.5rem;"><i class="fas fa-mug-hot"></i></div>
-                    <h4 style="color: #A05252; margin: 0 1.5rem 0.5rem;">Specialkaffe</h4>
-                    <p style="padding: 0 1.5rem;">Köpenhamn har en stark kaffekultur med många mikrorosterier. Perfekt för en "hygge"-stund.</p>
+                <article class="card" style="background-color: #F5EEE6; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px;">
+                    <div class="icon-box" style="background-color: #8B6B4E; color: #FFFFFF; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; margin: 1.5rem;"><i class="fas fa-mug-hot"></i></div>
+                    <h4 style="color: #8B6B4E; margin: 0 1.5rem 0.5rem;">Specialkaffe</h4>
+                    <p style="padding: 0 1.5rem; color: #4A4035;">Köpenhamn har en stark kaffekultur med många mikrorosterier. Perfekt för en "hygge"-stund.</p>
                 </article>
-                <article class="card" style="background-color: #FFFFFF; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px;">
-                    <div class="icon-box" style="background-color: #A05252; color: #FFFFFF; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; margin: 1.5rem;"><i class="fas fa-bread-slice"></i></div>
-                    <h4 style="color: #A05252; margin: 0 1.5rem 0.5rem;">Danskt Bakverk</h4>
-                    <p style="padding:
+                <article class="card" style="background-color: #F5EEE6; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px;">
+                    <div class="icon-box" style="background-color: #8B6B4E; color: #FFFFFF; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; margin: 1.5rem;"><i class="fas fa-bread-slice"></i></div>
+                    <h4 style="color: #8B6B4E; margin: 0 1.5rem 0.5rem;">Danskt Bakverk</h4>
+                    <p style="padding: 0 1.5rem; color: #4A4035;">Prova de berömda danska bakverken - "wienerbrød" är ett måste!</p>
+                </article>
+                <article class="card" style="background-color: #F5EEE6; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px;">
+                    <div class="icon-box" style="background-color: #8B6B4E; color: #FFFFFF; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; margin: 1.5rem;"><i class="fas fa-cookie"></i></div>
+                    <h4 style="color: #8B6B4E; margin: 0 1.5rem 0.5rem;">Hygge-stunder</h4>
+                    <p style="padding: 0 1.5rem; color: #4A4035;">Njut av mysiga stunder på Köpenhamns charmiga caféer.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="tips" class="content-section secondary-bg" style="padding: 4rem 0; background-color: #D9CFC2;">
+            <h3 style="font-size: 2rem; margin-bottom: 2rem; color: #8B6B4E; text-align: center;"><i class="fas fa-lightbulb"></i> Tips & Rekommendationer</h3>
+            <div class="card-grid">
+                <article class="card" style="background-color: #F5EEE6; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px;">
+                    <div class="icon-box" style="background-color: #8B6B4E; color: #FFFFFF; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; margin: 1.5rem;"><i class="fas fa-bicycle"></i></div>
+                    <h4 style="color: #8B6B4E; margin: 0 1.5rem 0.5rem;">Cykla runt</h4>
+                    <p style="padding: 0 1.5rem; color: #4A4035;">Hyr en cykel och utforska staden som en äkta köpenhamnare!</p>
+                </article>
+                <article class="card" style="background-color: #F5EEE6; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px;">
+                    <div class="icon-box" style="background-color: #8B6B4E; color: #FFFFFF; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; margin: 1.5rem;"><i class="fas fa-ticket-alt"></i></div>
+                    <h4 style="color: #8B6B4E; margin: 0 1.5rem 0.5rem;">Copenhagen Card</h4>
+                    <p style="padding: 0 1.5rem; color: #4A4035;">Överväg att köpa ett Copenhagen Card för fri entré till museer och kollektivtrafik.</p>
+                </article>
+                <article class="card" style="background-color: #F5EEE6; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-radius: 8px;">
+                    <div class="icon-box" style="background-color: #8B6B4E; color: #FFFFFF; display: inline-flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; margin: 1.5rem;"><i class="fas fa-sun"></i></div>
+                    <h4 style="color: #8B6B4E; margin: 0 1.5rem 0.5rem;">Bästa tiden att besöka</h4>
+                    <p style="padding: 0 1.5rem; color: #4A4035;">Sommaren (juni-augusti) erbjuder bäst väder och längst dagar.</p>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <footer style="background-color: #4A4035; color: #F5EEE6; padding: 2rem;">
+        <div class="footer-content">
+            <div>
+                <h4 style="color: #D9CFC2; margin-bottom: 1rem;">Copenhagen Guide</h4>
+                <p>Din kompletta guide till Köpenhamn</p>
+            </div>
+            <div>
+                <p>&copy; 2024 Copenhagen Guide. Alla rättigheter förbehållna.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
