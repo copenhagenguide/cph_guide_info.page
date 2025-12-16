@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head> 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3J84264GWH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3J84264GWH');
+</script> 
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M9RPNSZH');</script>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copenhagen Guide | Kontakta Oss</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        
+        /* Säkerställer att kontaktsidan fyller utrymmet och inte har massa vitrum under headern */
+        main {
+            min-height: calc(100vh - 120px); 
+        }
+    </style>
+</head>
+<body style="background-color: #E8DFD0; color: #4A4035;">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M9RPNSZH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<header class="main-header" style="background-color: #F5EEE6; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100;">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <h1 style="color: #8B6B4E; font-size: 1.5rem;">Copenhagen <strong style="color: #4A4035;">Guide</strong></h1>
+            </a>
+        </div>
+        <nav class="main-nav">
+            <button class="menu-toggle" aria-label="Toggle navigation" style="color: #4A4035;"></button>
+            <ul class="nav-list" style="list-style: none; display: flex;">
+                <li><a href="index.html#attraktioner" style="text-decoration: none; color: #4A4035; margin-left: 1.5rem;">Sevärdheter</a></li>
+                <li><a href="index.html#matstallen" style="text-decoration: none; color: #4A4035; margin-left: 1.5rem;">Mat & Restauranger</a></li>
+                <li><a href="index.html#cafeer" style="text-decoration: none; color: #4A4035; margin-left: 1.5rem;">Caféer</a></li>
+                <li><a href="index.html#tips" style="text-decoration: none; color: #4A4035; margin-left: 1.5rem;">Tips & Rekommendationer</a></li>
+                <li><a href="kontakt.html" style="text-decoration: none; color: #8B6B4E; font-weight: 700; margin-left: 1.5rem;">Kontakta Oss</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <section id="kontakt" class="content-section" style="padding: 4rem 0;"> 
+            <h3 style="font-size: 2rem; margin-bottom: 2rem; color: #8B6B4E; text-align: center;"><i class="fas fa-envelope"></i> Kontakta Oss</h3>
+            
+            <div class="contact-form-container">
+                <form class="contact-form" action="#" method="POST" onsubmit="alert('Meddelande skickat! (Observera: Detta är en demonstration. Server-side implementering krävs.)'); return false;">
+                    
+                    <label for="name">Namn:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">E-post:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="message">Meddelande:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    
+                    <button type="submit">Skicka Meddelande <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+
+            <div class="contact-info-box">
+                <h4 style="color: #4A4035;">Vår Kontaktinformation</h4>
+                <p><i class="fas fa-at"></i> **E-post:** <a href="mailto:cphguide@copenhagen.se" style="color: #4A4035;">cphguide@copenhagen.se</a></p>
+                <p><i class="fas fa-phone"></i> **Telefon:** 010- 00 00 00</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer style="background-color: #4A4035; color: #F5EEE6; padding: 2rem;">
+        <div class="footer-content">
+            <div>
+                <h4 style="color: #D9CFC2; margin-bottom: 1rem;">Copenhagen Guide</h4>
+                <p>Din kompletta guide till Köpenhamn</p>
+            </div>
+            <div>
+                <p>&copy; 2024 Copenhagen Guide. Alla rättigheter förbehållna.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
