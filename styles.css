@@ -74,6 +74,66 @@ h1, h2, h3, h4 {
 }
 
 
+/* --- NYA STILAR FÖR KONTAKTFORMULÄR (Nu för kontakt.html) --- */
+.contact-form-container {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+    background-color: #F5EEE6; /* Ljus bakgrund */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #4A4035;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #D9CFC2;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form button {
+    background-color: #8B6B4E; /* Brun knapp */
+    color: #FFFFFF;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #7A5B3D;
+}
+
+.contact-info-box {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #D9CFC2; /* Sekundär bakgrund */
+    border-left: 5px solid #8B6B4E;
+    border-radius: 4px;
+    text-align: center;
+}
+
+
 /* --- Responsivitet (Mobil/Tablet) --- */
 @media (max-width: 900px) {
     .nav-list {
@@ -118,4 +178,12 @@ h1, h2, h3, h4 {
     .container {
         padding: 1rem;
     }
+    
+    .contact-form-container {
+        padding: 1rem;
+    }
+}
+        padding: 1rem;
+    }
+
 }
