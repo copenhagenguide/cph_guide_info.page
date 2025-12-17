@@ -3,31 +3,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const navList = document.querySelector('.nav-list');
     const mainHeader = document.querySelector('.main-header'); 
-    
-    // --- NYTT: Cookie Logik Variabler ---
+
+    // --- NYTT: 1. Cookie Logik Variabler ---
     const cookieBanner = document.getElementById('cookie-banner');
     const acceptButton = document.getElementById('accept-cookies');
 
-    // --- NYTT: 1. Cookie-funktionalitet ---
+    // --- NYTT: 2. Cookie-funktionalitet ---
+    // Kontrollerar om användaren redan har accepterat cookies via localStorage
     const hasAcceptedCookies = localStorage.getItem('cookiesAccepted');
     
     if (cookieBanner && !hasAcceptedCookies) {
+        // Visa bannern om den finns och inte har accepterats
         cookieBanner.style.display = 'flex';
     }
 
     if (acceptButton) {
         acceptButton.addEventListener('click', () => {
+            // Spara valet och dölj bannern
             localStorage.setItem('cookiesAccepted', 'true');
             if (cookieBanner) {
                 cookieBanner.style.display = 'none';
             }
-            // Ladda om eller starta GTM här om du vill garantera att den laddas först efter godkännande
-            // I detta fall, eftersom GTM-koden ligger direkt i HTML:en, 
-            // kommer den att köra men kan t.ex. använda Consent Mode för att anpassa beteendet.
+            // OBS: Om du använder Google Analytics eller GTM, är detta stället 
+            // där du skulle ladda in spårningsskripten eller uppdatera consent-läget.
         });
     }
 
-    // --- 2. Hamburgermeny för Mobilläge ---
+
+    // --- 3. Hamburgermeny för Mobilläge (Befintlig logik) ---
     const menuToggle = document.querySelector('.menu-toggle');
     if (menuToggle) {
         menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
@@ -38,19 +41,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 3. Funktion för att växla mellan sidor (din befintliga logik) ---
+    // --- 4. Funktion för att växla mellan sidor (kontaktlogik) ---
     const toggleContactPage = (isContact) => {
         if (isContact) {
             body.classList.add('on-contact-page');
             document.title = 'Copenhagen Guide | Kontakta Oss';
         } else {
             body.classList.remove('on-contact-page');
-            // Observera: Denna rad kan behöva justeras om du har olika titlar på varje sida
-            // Jag tar bort den här så att sidtitlarna från varje HTML-fil används.
+            document.title = 'Copenhagen Guide | Din guide till Köpenhamn';
         }
     };
 
-    // --- 4. Hantera sidladdning och back/forward-knappen (din befintliga logik) ---
+    // --- 5. Hantera sidladdning och back/forward-knappen ---
     const handleStateChange = () => {
         if (window.location.hash === '#kontakt') {
             toggleContactPage(true);
@@ -69,47 +71,45 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     // Kör vid start
-    handleStateChange();
+    handleStateChange(); // Kör logiken direkt vid sidladdning
     
-    // Kör vid back/forward
+    // Kör vid back/forward (Popstate)
     window.addEventListener('popstate', handleStateChange);
+    
 
-    // --- 5. Smooth Scroll & Hantering av hash-länkar (din befintliga logik) ---
+    // --- 6. Klickhändelse och Smooth Scroll Logik ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             
-            if (window.innerWidth <= 900 && navList) {
-                 navList.classList.remove('active');
-            }
+            e.preventDefault(); 
             
-            if (this.getAttribute('href').length > 1) { 
-                e.preventDefault();
+            // Stäng menyn i mobilläge
+            if (window.innerWidth <= 900 && navList) {
+                navList.classList.remove('active');
+            }
 
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            const headerHeight = mainHeader ? mainHeader.offsetHeight : 0;
+            
+            if (targetId === 'kontakt') {
+                // KONTAKTSIDA LOGIK
+                toggleContactPage(true);
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+                history.pushState(null, null, '#kontakt');
 
-                if (targetId === 'kontakt') {
-                    toggleContactPage(true);
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    history.pushState(null, null, this.getAttribute('href'));
-
-                } else if (targetElement) {
-                    toggleContactPage(false);
-                    history.pushState(null, null, this.getAttribute('href'));
-                    
-                    const headerHeight = mainHeader ? mainHeader.offsetHeight : 0;
-                    const topPosition = targetElement.offsetTop - headerHeight;
-
-                    window.scrollTo({
-                        top: topPosition,
-                        behavior: 'smooth'
-                    });
-                }
+            } else if (targetElement) {
+                // ÖVRIGA SEKTIONER LOGIK (dvs. Attraktioner, Matställen etc.)
+                toggleContactPage(false);
+                history.pushState(null, null, '#' + targetId);
+                
+                // Scrolla till rätt position
+                const topPosition = targetElement.offsetTop - headerHeight;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
             }
         });
-    });
-});
-            }
-        }
     });
 });
