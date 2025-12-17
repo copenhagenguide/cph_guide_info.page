@@ -187,3 +187,52 @@ h1, h2, h3, h4 {
     }
 
 }
+/* --- COOKIE BANNER STYLES --- */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #4A4035; /* Mörk bakgrund */
+    color: #F5EEE6; /* Ljus text */
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+}
+
+.cookie-banner p {
+    margin: 0;
+    margin-right: 1.5rem;
+}
+
+.cookie-banner button {
+    background-color: #8B6B4E;
+    color: #FFFFFF;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    flex-shrink: 0; /* Hindrar knappen från att krympa */
+}
+
+.cookie-banner button:hover {
+    background-color: #7A5B3D;
+}
+
+/* Responsivitet för cookie-banner */
+@media (max-width: 600px) {
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+    .cookie-banner p {
+        margin-bottom: 1rem;
+        margin-right: 0;
+    }
+}
