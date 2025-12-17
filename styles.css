@@ -183,64 +183,8 @@ h1, h2, h3, h4 {
         padding: 1rem;
     }
 }
-        padding: 1rem;
-    }
 
-}
-/* --- COOKIE POP-UP MODAL STYLES --- */
-
-/* Bakgrundsdimma som täcker hela skärmen */
-.cookie-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Mörk dimma */
-    z-index: 10000; /* Mycket högt z-index för att ligga över allt annat */
-    display: flex; /* Använd flexbox för att centrera innehållet */
-    justify-content: center;
-    align-items: center;
-    /* Denna kommer att döljas/visas via JS, men flexbox är standard när den visas */
-}
-
-/* Själva pop-up rutan */
-.cookie-modal-content {
-    background-color: #F5EEE6; /* Ljus bakgrund */
-    color: #4A4035;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    max-width: 450px;
-    width: 90%;
-    text-align: center;
-}
-
-.cookie-modal-content h3 {
-    color: #8B6B4E;
-    margin-bottom: 1rem;
-}
-
-.cookie-modal-content p {
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
-}
-
-.cookie-modal-content button {
-    background-color: #8B6B4E;
-    color: #FFFFFF;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s;
-}
-
-.cookie-modal-content button:hover {
-    background-color: #7A5B3D;
-}
-/* --- Global Card Image Styles for consistency --- */
+/* --- Global Card Image Styles for consistency (Används för matstallen.html) --- */
 .card-image {
     width: 100%;
     height: 200px; /* Standard höjd för kortbilder */
@@ -252,4 +196,57 @@ h1, h2, h3, h4 {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Säkerställer att bilden fyller rutan utan att bli förvrängd */
+}
+
+
+/* --- COOKIE BANNER STYLES (Högst upp på sidan) --- */
+
+.cookie-banner {
+    position: fixed;
+    top: 0; /* Fäster vid toppen */
+    left: 0;
+    width: 100%;
+    background-color: #4A4035; 
+    color: #F5EEE6;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9998; /* Ligger under headern */
+    display: none; 
+}
+
+.cookie-banner p {
+    margin: 0;
+    flex-grow: 1;
+    font-size: 0.9rem;
+}
+
+.cookie-banner button {
+    background-color: #8B6B4E; 
+    color: #FFFFFF;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 1.5rem;
+    transition: background-color 0.3s;
+}
+
+.cookie-banner button:hover {
+    background-color: #7A5B3D;
+}
+
+/* Responsivitet för banderollen */
+@media (max-width: 768px) {
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+    .cookie-banner button {
+        margin: 1rem 0 0 0;
+        width: 100%;
+    }
 }
