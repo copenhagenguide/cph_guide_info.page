@@ -4,33 +4,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const navList = document.querySelector('.nav-list');
     const mainHeader = document.querySelector('.main-header'); 
 
-    // --- NYTT: 1. Cookie Logik Variabler ---
-    const cookieBanner = document.getElementById('cookie-banner');
+    // --- NYTT: 1. Cookie Pop-up Logik Variabler ---
+    const cookieModalOverlay = document.getElementById('cookie-modal-overlay');
     const acceptButton = document.getElementById('accept-cookies');
 
-    // --- NYTT: 2. Cookie-funktionalitet ---
-    // Kontrollerar om användaren redan har accepterat cookies via localStorage
-    const hasAcceptedCookies = localStorage.getItem('cookiesAccepted');
+    // --- NYTT: 2. Funktion för att kontrollera/visa pop-up ---
+    const checkAndShowCookieModal = () => {
+        const hasAcceptedCookies = localStorage.getItem('cookiesAccepted');
+        
+        if (cookieModalOverlay && !hasAcceptedCookies) {
+            // Visa pop-up
+            cookieModalOverlay.style.display = 'flex';
+            // Förhindra scrollning i bakgrunden
+            body.style.overflow = 'hidden'; 
+        }
+    };
     
-    if (cookieBanner && !hasAcceptedCookies) {
-        // Visa bannern om den finns och inte har accepterats
-        cookieBanner.style.display = 'flex';
-    }
-
+    // --- NYTT: 3. Hantera klick på Godkänn ---
     if (acceptButton) {
         acceptButton.addEventListener('click', () => {
-            // Spara valet och dölj bannern
+            // Spara valet och dölj pop-up
             localStorage.setItem('cookiesAccepted', 'true');
-            if (cookieBanner) {
-                cookieBanner.style.display = 'none';
+            if (cookieModalOverlay) {
+                cookieModalOverlay.style.display = 'none';
             }
-            // OBS: Om du använder Google Analytics eller GTM, är detta stället 
-            // där du skulle ladda in spårningsskripten eller uppdatera consent-läget.
+            // Återställ scrollning
+            body.style.overflow = 'auto'; 
+
+            // HÄR KAN DU T.EX. FIRE ETT DATALAYER EVENT FÖR GTM
+            // if (window.dataLayer) {
+            //     window.dataLayer.push({'event': 'cookies_accepted'});
+            // }
         });
     }
 
+    // Kör cookie-kontrollen direkt
+    checkAndShowCookieModal();
 
-    // --- 3. Hamburgermeny för Mobilläge (Befintlig logik) ---
+
+    // --- 4. Hamburgermeny för Mobilläge (Befintlig logik) ---
     const menuToggle = document.querySelector('.menu-toggle');
     if (menuToggle) {
         menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
@@ -41,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 4. Funktion för att växla mellan sidor (kontaktlogik) ---
+    // --- 5. Funktion för att växla mellan sidor (kontaktlogik) ---
     const toggleContactPage = (isContact) => {
         if (isContact) {
             body.classList.add('on-contact-page');
@@ -52,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- 5. Hantera sidladdning och back/forward-knappen ---
+    // --- 6. Hantera sidladdning och back/forward-knappen ---
     const handleStateChange = () => {
         if (window.location.hash === '#kontakt') {
             toggleContactPage(true);
@@ -71,13 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     // Kör vid start
-    handleStateChange(); // Kör logiken direkt vid sidladdning
+    handleStateChange(); 
     
     // Kör vid back/forward (Popstate)
     window.addEventListener('popstate', handleStateChange);
     
 
-    // --- 6. Klickhändelse och Smooth Scroll Logik ---
+    // --- 7. Klickhändelse och Smooth Scroll Logik ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             
@@ -99,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 history.pushState(null, null, '#kontakt');
 
             } else if (targetElement) {
-                // ÖVRIGA SEKTIONER LOGIK (dvs. Attraktioner, Matställen etc.)
+                // ÖVRIGA SEKTIONER LOGIK
                 toggleContactPage(false);
                 history.pushState(null, null, '#' + targetId);
                 
