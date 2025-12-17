@@ -143,17 +143,15 @@ h1, h2, h3, h4 {
         position: absolute;
         top: 100%;
         left: 0;
-        background-color: #F5EEE6; /* Ändrad till din ljusa designfärg */
+        background-color: #F5EEE6; /* Ändrad färg för tydligare meny i mobilen */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         padding: 1rem 0;
     }
-    /* ... resten av mobil-stilarna ... */
-}
 
     .nav-list.active {
         display: flex;
     }
-
+    
     .nav-list li {
         text-align: center;
         width: 100%;
@@ -169,6 +167,8 @@ h1, h2, h3, h4 {
     .menu-toggle {
         display: block;
     }
+    /* ... resten av media-queryn ... */
+}
 
     .footer-content {
         flex-direction: column;
@@ -252,4 +252,5 @@ h1, h2, h3, h4 {
         width: 100%;
     }
 }
+
 
