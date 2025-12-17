@@ -4,39 +4,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const navList = document.querySelector('.nav-list');
     const mainHeader = document.querySelector('.main-header'); 
 
-    // --- NYTT: 1. Cookie Pop-up Logik Variabler ---
-    const cookieModalOverlay = document.getElementById('cookie-modal-overlay');
+    // --- NYTT: 1. Cookie Banner Logik Variabler ---
+    const cookieBanner = document.getElementById('cookie-banner');
     const acceptButton = document.getElementById('accept-cookies');
 
-    // --- NYTT: 2. Funktion för att kontrollera/visa pop-up ---
-    const checkAndShowCookieModal = () => {
+    // --- NYTT: 2. Funktion för att kontrollera/visa banderollen ---
+    const checkAndShowCookieBanner = () => {
         const hasAcceptedCookies = localStorage.getItem('cookiesAccepted');
         
-        if (cookieModalOverlay && !hasAcceptedCookies) {
-            // Visa pop-up genom att ändra display-stilen
-            cookieModalOverlay.style.display = 'flex'; 
-            // Förhindra scrollning i bakgrunden för att blockera interaktion
-            body.style.overflow = 'hidden'; 
+        if (cookieBanner && !hasAcceptedCookies) {
+            // Visa banner
+            cookieBanner.style.display = 'flex';
+            // Scrollning i bakgrunden tillåts nu (ingen 'body.style.overflow = "hidden"' behövs)
         }
     };
     
     // --- NYTT: 3. Hantera klick på Godkänn ---
     if (acceptButton) {
         acceptButton.addEventListener('click', () => {
-            // Spara valet och dölj pop-up
+            // Spara valet och dölj banner
             localStorage.setItem('cookiesAccepted', 'true');
-            if (cookieModalOverlay) {
-                cookieModalOverlay.style.display = 'none';
+            if (cookieBanner) {
+                cookieBanner.style.display = 'none';
             }
-            // Återställ scrollning så att sidan kan användas
-            body.style.overflow = 'auto'; 
+            // Ingen scroll-återställning behövs
 
-            // HÄR KAN DU T.EX. FIRE ETT DATALAYER EVENT FÖR GTM (om nödvändigt)
+            // HÄR KAN DU T.EX. FIRE ETT DATALAYER EVENT FÖR GTM
         });
     }
 
     // Kör cookie-kontrollen direkt
-    checkAndShowCookieModal();
+    checkAndShowCookieBanner();
 
 
     // --- 4. Hamburgermeny för Mobilläge (Befintlig logik) ---
