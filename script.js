@@ -13,17 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const hasAcceptedCookies = localStorage.getItem('cookiesAccepted');
         
         if (cookieModalOverlay && !hasAcceptedCookies) {
-            // Visa pop-up
-            cookieModalOverlay.style.display = 'flex';
-            // Förhindra scrollning i bakgrunden
+            // Visa pop-up genom att ändra display-stilen
+            cookieModalOverlay.style.display = 'flex'; 
+            // Förhindra scrollning i bakgrunden för att blockera interaktion
             body.style.overflow = 'hidden'; 
         }
     };
-
-    // ...
-
-// Kör cookie-kontrollen direkt när sidan är klar
-checkAndShowCookieModal();
     
     // --- NYTT: 3. Hantera klick på Godkänn ---
     if (acceptButton) {
@@ -33,13 +28,10 @@ checkAndShowCookieModal();
             if (cookieModalOverlay) {
                 cookieModalOverlay.style.display = 'none';
             }
-            // Återställ scrollning
+            // Återställ scrollning så att sidan kan användas
             body.style.overflow = 'auto'; 
 
-            // HÄR KAN DU T.EX. FIRE ETT DATALAYER EVENT FÖR GTM
-            // if (window.dataLayer) {
-            //     window.dataLayer.push({'event': 'cookies_accepted'});
-            // }
+            // HÄR KAN DU T.EX. FIRE ETT DATALAYER EVENT FÖR GTM (om nödvändigt)
         });
     }
 
