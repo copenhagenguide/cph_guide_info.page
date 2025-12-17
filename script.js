@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
             body.style.overflow = 'hidden'; 
         }
     };
+
+    // ...
+
+// Kör cookie-kontrollen direkt när sidan är klar
+checkAndShowCookieModal();
     
     // --- NYTT: 3. Hantera klick på Godkänn ---
     if (acceptButton) {
