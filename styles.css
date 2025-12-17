@@ -187,7 +187,7 @@ h1, h2, h3, h4 {
     }
 
 }
-/* --- COOKIE POP-UP STYLES --- */
+/* --- COOKIE POP-UP MODAL STYLES --- */
 
 /* Bakgrundsdimma som täcker hela skärmen */
 .cookie-modal-overlay {
@@ -198,9 +198,10 @@ h1, h2, h3, h4 {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7); /* Mörk dimma */
     z-index: 10000; /* Mycket högt z-index för att ligga över allt annat */
-    display: none; /* Döljs som standard, visas via JS */
+    display: flex; /* Använd flexbox för att centrera innehållet */
     justify-content: center;
     align-items: center;
+    /* Denna kommer att döljas/visas via JS, men flexbox är standard när den visas */
 }
 
 /* Själva pop-up rutan */
